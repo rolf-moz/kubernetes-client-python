@@ -26,6 +26,7 @@ import urllib3
 
 from kubernetes.client.exceptions import ApiException, ApiValueError
 from requests.utils import should_bypass_proxies
+from urllib3.contrib.socks import SOCKSProxyManager
 
 
 logger = logging.getLogger(__name__)
