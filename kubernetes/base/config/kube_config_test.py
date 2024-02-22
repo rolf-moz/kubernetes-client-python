@@ -1435,14 +1435,14 @@ class TestKubeConfigLoader(BaseTestCase):
             config_file=config_file, context="simple_token")
         self.assertEqual(TEST_HOST, client.configuration.host)
         self.assertEqual(BEARER_TOKEN_FORMAT % TEST_DATA_BASE64,
-                         client.configuration.api_key['authorization'])
+                         client.configuration.api_key['BearerToken'])
 
     def test_new_client_from_config_dict(self):
         client = new_client_from_config_dict(
             config_dict=self.TEST_KUBE_CONFIG, context="simple_token")
         self.assertEqual(TEST_HOST, client.configuration.host)
         self.assertEqual(BEARER_TOKEN_FORMAT % TEST_DATA_BASE64,
-                         client.configuration.api_key['authorization'])
+                         client.configuration.api_key['BearerToken'])
 
     def test_no_users_section(self):
         expected = FakeConfig(host=TEST_HOST)
@@ -1854,7 +1854,7 @@ class TestKubeConfigMerger(BaseTestCase):
             config_file=kubeconfigs, context="simple_token")
         self.assertEqual(TEST_HOST, client.configuration.host)
         self.assertEqual(BEARER_TOKEN_FORMAT % TEST_DATA_BASE64,
-                         client.configuration.api_key['authorization'])
+                         client.configuration.api_key['BearerToken'])
 
     def test_save_changes(self):
         kubeconfigs = self._create_multi_config()
